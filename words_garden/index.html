@@ -1,0 +1,55 @@
+<html lang='en'>
+
+<head>
+  <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+  <!-- Custom styling -->
+  <link rel='stylesheet' href='./css/index.css'>
+  <!-- Custom font -->
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Just+Another+Hand&display=swap'>
+  
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+  <script src='drawing.js'> </script>
+  <script src="loadModel.js"></script>
+  <script src="./vendor/opencv.js"></script>
+  <script src="gameLogic.js"></script>
+
+
+</head>
+
+<body>
+
+  <div class='container'>
+
+    <h1>Words Garden</h1>
+
+    <h2 id='question'><span id='n1'>3</span> + <span id='n2'>2</span> = </h2>
+
+    <!-- Drawing canvas -->
+    <canvas id="my-canvas" width="150" height="150" >error</canvas>
+
+  </div>
+
+  <div class='container'>
+    <button id='checkAnswer' class='btn' value='Check'>Check Answer</button>
+  </div>
+
+  <!-- TODO: Set up TF model and drawing logic-->
+
+  <script>
+    //Load the model 
+    loadModel();
+    newQuestion();
+    //set up canvase
+    prepareCanvas();
+    //Button click event triggers
+    document.getElementById('checkAnswer').addEventListener('click', function () {
+      predictNumber();
+      verifyAnswer();
+      clearCanvas();
+      newQuestion();
+      
+    });
+  </script>
+</body>
+
+</html>
